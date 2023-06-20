@@ -6,7 +6,6 @@ interface iProps {
     data: any
 }
 
-
 const DayData = ({data}: iProps) => {
     return (
         <div className={"dayData"}>

@@ -1,13 +1,23 @@
 import React from 'react';
 import "./ListDays.scss";
 
-const ListDays = () => {
+interface iProps {
+    days: string []
+}
+
+
+const ListDays = ({days}: iProps) => {
     return (
         <ul className={"listDays"}>
-             <li className="active">
-                <p className={"nameDay"}>Today</p>
-                <p>05/07</p>
-            </li>
+            {
+                days.map((el : string) => {
+                    const date = new Date(el).toString().split(" ");
+                    return <li className="active">
+                        <p className={"nameDay"}>{date[0]}</p>
+                        <p>{date[2]}</p>
+                    </li>
+                })
+            }
         </ul>
     );
 };
