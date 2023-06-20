@@ -65,8 +65,8 @@ const App = () => {
 
     return (
         <div>
-            <ListDays days={data.days}/>
-            <DayData data={data.list[selectedDay]}/>
+            <ListDays days={data.days} selectedDay={selectedDay} setDay={setDay}/>
+            <DayData  data={data.list[selectedDay]}/>
             <TimeList selectedDay={selectedDay} data={data}/>
             <MoreInfo />
         </div>

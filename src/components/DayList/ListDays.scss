@@ -5,11 +5,13 @@
   gap: 10px;
   color: #86929B;
   overflow: scroll;
+  padding: 0 20px;
 
   li {
     padding: 10px 30px;
     border-radius: 30px;
     text-align: center;
+    transition: 0.6s;
   }
 
   .nameDay {
@@ -17,8 +19,10 @@
   }
 
   .active {
-    background: linear-gradient(165.31deg, #3A36FF -2.83%, #41B7FA 128.16%);
+    background: #3A36FF;
     color: #fff;
+    transition: 0.6s;
+
   }
 }
 
