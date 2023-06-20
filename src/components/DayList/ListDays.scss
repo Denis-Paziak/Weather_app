@@ -1,0 +1,22 @@
+.listDays {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  color: #86929B;
+
+  li {
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .nameDay {
+    font-weight: bold;
+  }
+
+  .active {
+    background: linear-gradient(165.31deg, #3A36FF -2.83%, #41B7FA 128.16%);
+    color: #fff;
+  }
+}
+
