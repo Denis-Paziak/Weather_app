@@ -1,0 +1,19 @@
+.dayData {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+
+  .temperature {
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      opacity: 0.5;
+    }
+
+    h2 {
+      font-size: 100px;
+      line-height: 90px;
+    }
+  }
+}
