@@ -2,6 +2,7 @@ import React from 'react';
 import ListDays from "../DayList/ListDays";
 import DayData from "../DayData/DayData";
 import TimeList from "../TimeList/TimeList";
+import MoreInfo from "../MoreInfo/MoreInfo";
 
 const App = () => {
     return (
@@ -9,6 +10,7 @@ const App = () => {
             <ListDays />
             <DayData />
             <TimeList />
+            <MoreInfo />
         </div>
     );
 };

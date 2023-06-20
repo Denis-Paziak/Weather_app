@@ -1,0 +1,16 @@
+.moreInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-top: 50px;
+
+  .title {
+    color: #616161;
+    font-size: 12px;
+  }
+
+  .info {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
