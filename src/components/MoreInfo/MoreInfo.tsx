@@ -1,36 +1,40 @@
 import React from 'react';
 import "./MoreInfo.scss";
-const MoreInfo = () => {
+
+const MoreInfo = ({data}: any) => {
+
+    const {max_temp, min_temp, humidity, wind, pressure}: any = data;
+
     return (
         <div className={"moreInfo"}>
             <div className="item">
-                <p className="title">Pressure</p>
-                <p className="info">800hcpa</p>
+                <p className="title">Max temperature</p>
+                <p className="info">{max_temp}</p>
             </div>
 
             <div className="item">
-                <p className="title">Precipitation</p>
-                <p className="info">2.0 mm</p>
+                <p className="title">Min temperature</p>
+                <p className="info">{min_temp}</p>
             </div>
 
             <div className="item">
                 <p className="title">Humidity</p>
-                <p className="info">56 %</p>
+                <p className="info">{humidity} %</p>
             </div>
 
             <div className="item">
-                <p className="title">Air Quality</p>
-                <p className="info">34</p>
+                <p className="title"> P_atm</p>
+                <p className="info">{pressure} hPa</p>
             </div>
 
             <div className="item">
                 <p className="title">Wind</p>
-                <p className="info">4 km/h</p>
+                <p className="info">{wind} m/s</p>
             </div>
 
             <div className="item">
                 <p className="title">Visibility</p>
-                <p className="info">11 km</p>
+                <p className="info">10 km</p>
             </div>
         </div>
     );

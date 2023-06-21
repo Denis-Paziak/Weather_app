@@ -1,12 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import "./DayData.scss";
 import img from "../../img/img.svg";
 
 interface iProps {
-    data: any
+    data: any,
 }
 
-const DayData = ({data}: iProps) => {
+const DayData = ({data,}: iProps) => {
     return (
         <div className={"dayData"}>
             <div className="vector">

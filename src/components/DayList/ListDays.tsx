@@ -1,29 +1,22 @@
-import React, {SetStateAction} from 'react';
+import React from 'react';
 import "./ListDays.scss";
-import {Simulate} from "react-dom/test-utils";
-import select = Simulate.select;
 
 interface iProps {
     days: string [],
-    setDay: React.Dispatch<SetStateAction<number>>,
-    selectedDay: number
+    selectedDay: string,
+    changeData:  (data: string) => void
 }
 
-
-const ListDays = ({selectedDay, setDay, days}: iProps) => {
+const ListDays = ({days, changeData, selectedDay}: iProps) => {
+    console.log(selectedDay)
     return (
         <ul className={"listDays"}>
             {
-                days.map((el : string, index: number) => {
+                days.map((el : string) => {
                     const date = new Date(el).toString().split(" ");
-                    let styleClass = '';
+                    const styleClass = el === selectedDay ? "active" : "";
 
-                    if (index === selectedDay) {
-                        styleClass = "active";
-                    }
-
-
-                    return <li className={styleClass} onClick={() => setDay(index)}>
+                    return <li key={el} className={styleClass} onClick={() => {changeData(el)}}>
                         <p className={"nameDay"}>{date[0]}</p>
                         <p>{date[2]}</p>
                     </li>
