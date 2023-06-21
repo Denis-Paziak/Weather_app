@@ -8,7 +8,6 @@ interface iProps {
 }
 
 const ListDays = ({days, changeData, selectedDay}: iProps) => {
-    console.log(selectedDay)
     return (
         <ul className={"listDays"}>
             {
