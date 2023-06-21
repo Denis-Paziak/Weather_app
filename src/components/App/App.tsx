@@ -3,8 +3,10 @@ import ListDays from "../DayList/ListDays";
 import DayData from "../DayData/DayData";
 import TimeList from "../TimeList/TimeList";
 import MoreInfo from "../MoreInfo/MoreInfo";
+import Search from "../Search/Search";
 
 import weatherDB from "../../Data";
+import axios from "axios";
 
 interface iListItem {
     id: string,
@@ -20,7 +22,6 @@ interface iListItem {
     pressure: number
 }
 
-
 interface iData {
     list: iListItem[],
     days: string []
@@ -28,11 +29,13 @@ interface iData {
 
 const formatData = (data: any): iData => {
 
+    // Initialization of the object with new data
     let newData: iData = {
         list: [],
         days: []
     };
 
+    // Formating server data
     newData.list = data.list.map((el : any): iListItem  => {
        return {
            id: 'id' + el.dt + Math.floor(Math.random() * 1000),
@@ -49,10 +52,9 @@ const formatData = (data: any): iData => {
        }
     });
 
-
+    //Grouping of unique key days
     let days: string [] = [newData.list[0].date];
     let key: string = newData.list[0].date;
-
 
     newData.list.forEach((el: iListItem) => {
         if (el.date !== key) {
@@ -62,7 +64,6 @@ const formatData = (data: any): iData => {
     })
 
     newData.days = days;
-    console.log(newData);
     return newData;
 }
 
@@ -88,12 +89,25 @@ const App = () => {
         pressure: 0
     });
 
+    const [coordinates, setCoordinates] = useState({
+        name: "Kyiv",
+        lat: 50.4500336,
+        lon: -0.1276474,
+        state: ""
+    });
+
     const [selectedDay, setSelectedDay] = useState('');
 
     useEffect(() => {
-        setInitData(serverData);
-        setData(serverData.list[0]);
-    }, []);
+        const apiKey: string = "927f7246a362372633072455ef289ddf";
+
+        axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`)
+            .then(function (response) {
+                const data = formatData(response.data);
+                setInitData(data);
+                setData(data.list[0]);
+            })
+    }, [coordinates]);
 
     useEffect(() => {
         setSelectedDay(initData.days[0]);
@@ -118,6 +132,7 @@ const App = () => {
 
     return (
         <div>
+            <Search coordinates={coordinates} setCoordinates={setCoordinates}/>
             <ListDays days={initData.days} changeData={changeData} selectedDay={selectedDay}/>
             <DayData  data={data}/>
             <TimeList data={data} list={initData.list} changeDataTime={changeDataTime}/>

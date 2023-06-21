@@ -1,8 +1,8 @@
 .dayData {
   display: flex;
   align-items: center;
-  margin-top: 50px;
   padding: 0 20px;
+
   .vector {
     width: 200px;
     height: 200px;
@@ -12,12 +12,13 @@
       height: 100%;
     }
   }
+
   .temperature {
     margin-left: 30px;
+
     .title {
       font-size: 18px;
       font-weight: bold;
-      opacity: 0.5;
     }
 
     h2 {

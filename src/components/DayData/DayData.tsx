@@ -18,7 +18,7 @@ const DayData = ({data,}: iProps) => {
         "thunderstorm " : thunderstorm ,
     };
 
-    let veactor = '';
+    let veactor: string = '';
 
     if (data.status.indexOf("rain") >= 0) {
         veactor = vectors.rain
