@@ -24,7 +24,7 @@ const Search = ({coordinates, setCoordinates}: iProps) => {
         e.preventDefault();
         const apiKey: string = "927f7246a362372633072455ef289ddf";
 
-        axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${inputValue}&limit=10&appid=${apiKey}`)
+        axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${inputValue}&limit=10&appid=${apiKey}`)
             .then(function (response) {
                 setList(response.data);
             })

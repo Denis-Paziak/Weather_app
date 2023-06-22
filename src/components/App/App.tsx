@@ -98,7 +98,7 @@ const App = () => {
     useEffect(() => {
         const apiKey: string = "927f7246a362372633072455ef289ddf";
 
-        axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`)
+        axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`)
             .then(function (response) {
                 const data = formatData(response.data);
                 setInitData(data);
