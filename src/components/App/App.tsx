@@ -5,7 +5,6 @@ import TimeList from "../TimeList/TimeList";
 import MoreInfo from "../MoreInfo/MoreInfo";
 import Search from "../Search/Search";
 
-import weatherDB from "../../Data";
 import axios from "axios";
 
 interface iListItem {
@@ -66,8 +65,6 @@ const formatData = (data: any): iData => {
     newData.days = days;
     return newData;
 }
-
-const serverData: iData = formatData(weatherDB);
 
 const App = () => {
     const [initData, setInitData] = useState<iData>({
