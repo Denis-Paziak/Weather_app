@@ -16,6 +16,12 @@
     text-align: center;
     background: rgba(65, 183, 250, 0.3);
     transition: 0.6s;
+    cursor: pointer;
+
+    &:hover {
+      background: #3A36FF;
+      color: #fff;
+    }
   }
 
   .time {

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./Search.scss";
 import {BiMap} from "react-icons/bi";
 import axios from "axios";
+import {AiOutlineArrowLeft} from "react-icons/ai";
 
 
 interface iProps {
@@ -40,8 +41,9 @@ const Search = ({coordinates, setCoordinates}: iProps) => {
 
     return (
         <div className={"search"}>
-            <p onClick={() => {setOpenSearch(true)}}>{coordinates.name} <BiMap/></p>
+            <p className="title" onClick={() => {setOpenSearch(true)}}>{coordinates.name} <BiMap/></p>
             <form action="" className={"searchForm " +  styleClass} onSubmit={handler}>
+                <AiOutlineArrowLeft onClick={() => setOpenSearch(false)} className="left"/>
                 <h2>Search</h2>
                 <div className="container">
                     <input type="text" onChange={(e) => {
@@ -51,7 +53,7 @@ const Search = ({coordinates, setCoordinates}: iProps) => {
                         {listCountry.map((el: any) => {
                             const state = el.state ? el.state : el.name;
 
-                            return <li onClick={() => {
+                            return <li key={el.name + el.state} onClick={() => {
                                 selectCoordinates(el)
                             }}>{state}</li>
                         })}

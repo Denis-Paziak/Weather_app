@@ -131,7 +131,7 @@ const App = () => {
     }
 
     return (
-        <div>
+        <div className="app">
             <Search coordinates={coordinates} setCoordinates={setCoordinates}/>
             <ListDays days={initData.days} changeData={changeData} selectedDay={selectedDay}/>
             <DayData  data={data}/>
